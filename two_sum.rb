@@ -1,3 +1,5 @@
+require "byebug"
+
 #O(n^2)
 def bad_two_sum?(arr,target)
     sum = []
@@ -18,12 +20,12 @@ def bad_two_sum?(arr,target)
     end
     false
 end
-
+#O(n)
 def okay_two_sum?(arr,target)
 
     i = 0
     j = arr.length - 1
-    while i < arr.length || j > 0
+    until i == j
         if arr[i] + arr[j] == target
             return true
         elsif arr[i] + arr[j] < target 
@@ -34,4 +36,19 @@ def okay_two_sum?(arr,target)
     end
     false
 end
+
+
+def two_sum?(arr,target)
+    hash = {}
+
+    arr.each do |num|
+        debugger
+        complement = target - num
+        if hash[complement]
+          return true
+        end
+        hash[num] = true
+      end
     
+      false
+end
