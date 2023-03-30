@@ -1,5 +1,5 @@
 require "byebug"
-
+#O(n! * n)
 def first_anagram?(str1,str2)
     str1_a = str1.split("")
     str2_a = str2.split("")
@@ -25,7 +25,7 @@ def second_anagram?(str1, str2)
     false
 
 end
-
+#O(n log n)
 def third_anagram?(str1, str2)
 
     # alpha = ("a".."z").to_a
@@ -39,8 +39,19 @@ def third_anagram?(str1, str2)
         return true
     end
     false
+end
+#O(n)
+def fourth_anagram?(str1,str2)
+    hash1 =Hash.new(0)
 
+    str1.each_char do |ele|
+        hash1[ele] += 1
+    end
+    str2.each_char do |ele|
+        hash1[ele] -= 1
+    end
 
-
+    hash1.all? {|k,v| v.zero?}
+    
 end
 
