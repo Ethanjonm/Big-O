@@ -1,5 +1,5 @@
 require "byebug"
-#O(n! * n)
+#O(n!)
 def first_anagram?(str1,str2)
     str1_a = str1.split("")
     str2_a = str2.split("")
@@ -17,6 +17,7 @@ def second_anagram?(str1, str2)
         idx_del = str2_a.find_index(char)
         if idx_del != nil
         str2_a.delete_at(idx_del)
+        #return false
         end
     end
     if str2_a.length == 0
@@ -34,7 +35,7 @@ def third_anagram?(str1, str2)
 
     str1_sorted = str1_a.sort
     str2_sorted = str2_a.sort
-    debugger
+
     if str1_sorted == str2_sorted
         return true
     end
