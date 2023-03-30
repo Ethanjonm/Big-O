@@ -1,3 +1,5 @@
+require "byebug"
+
 def first_anagram?(str1,str2)
     str1_a = str1.split("")
     str2_a = str2.split("")
@@ -21,6 +23,24 @@ def second_anagram?(str1, str2)
         return true
     end
     false
+
+end
+
+def third_anagram?(str1, str2)
+
+    # alpha = ("a".."z").to_a
+    str1_a = str1.split("")
+    str2_a = str2.split("")
+
+    str1_sorted = str1_a.sort
+    str2_sorted = str2_a.sort
+    debugger
+    if str1_sorted == str2_sorted
+        return true
+    end
+    false
+
+
 
 end
 
