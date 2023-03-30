@@ -20,24 +20,18 @@ def bad_two_sum?(arr,target)
 end
 
 def okay_two_sum?(arr,target)
-    left = []
-    right = []
 
-    arr.each do |num|
-        if num < target
-            left << num
-        else
-            right << num
-        end
-    end
-    sum = []
     i = 0
-    while i < left.length
-        j = i+1
-        while j < left.length
-            sum << left[i] + left[j]
-            j+=1
+    j = arr.length - 1
+    while i < arr.length || j > 0
+        if arr[i] + arr[j] == target
+            return true
+        elsif arr[i] + arr[j] < target 
+            i+=1
+        else
+            j-=1
         end
-        i+=1
     end
+    false
+end
     
