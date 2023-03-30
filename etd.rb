@@ -46,3 +46,27 @@ def lcs(array)
     end
     answer
 end
+
+def lcs2(array)
+    sum = array.first
+    i = 0
+    j = 0
+    while i < array.length
+        sub_a = array[i..j]
+        # sum << sub_a
+        if sub_a.sum > sum 
+            sum = sub_a.sum 
+        end
+
+        
+        if j == array.length - 1
+            i += 1
+            j = i
+        else
+            j += 1
+        end
+
+    end
+    sum
+
+end
