@@ -1,3 +1,4 @@
+require "byebug"
 def my_min(array)
     smallest = array.first
     array.each_with_index do |num1, idx1|
@@ -24,3 +25,24 @@ def my_min2(array)
     small 
 end
 
+def lcs(array)
+    sum = []
+    i = 0
+    while i < array.length
+        j = i
+        while j < array.length
+            sub_a = array[i..j]
+            sum << sub_a
+            j+=1
+        end
+        i+=1
+    end
+    
+    answer = sum[0][0]
+    sum.each do |ele|
+        if ele.sum > answer
+            answer = ele.sum
+        end
+    end
+    answer
+end
